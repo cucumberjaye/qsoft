@@ -5,6 +5,7 @@ import (
 	"github.com/cucumberjaye/qtsoft/configs"
 	"github.com/cucumberjaye/qtsoft/internal/app/handler"
 	"github.com/cucumberjaye/qtsoft/internal/app/service"
+	"github.com/gin-gonic/gin"
 	"net/http"
 )
 
@@ -18,6 +19,7 @@ func New() *App {
 
 	app.s = service.New()
 
+	gin.SetMode(gin.ReleaseMode)
 	app.h = handler.New(app.s)
 
 	return app
